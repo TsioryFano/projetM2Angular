@@ -12,7 +12,7 @@ import { EditSesamienComponent } from './edit-sesamien/edit-sesamien.component';
 import { AddSesamienComponent } from './add-sesamien/add-sesamien.component';
 import { SearchSesamienComponent } from './search-sesamien/search-sesamien.component';
 import { LoaderComponent } from './loader/loader.component';
-import { AuthGuard } from '../auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 
 const sesamienRoutes: Routes = [
   {path:'edit/sesamien/:id', component: EditSesamienComponent, canActivate: [AuthGuard]},
