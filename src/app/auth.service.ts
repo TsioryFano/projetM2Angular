@@ -13,7 +13,7 @@ export class AuthService {
     const isLoggeIn = (name == 'sesamien' && password == 'sesamien');
     return of(isLoggeIn).pipe(
       delay(1000),
-      tap(isLoggedIn => this.isLoggedIn = isLoggedIn)
+      tap((isLoggedIn: boolean) => this.isLoggedIn = isLoggedIn)
     );
   }
 
