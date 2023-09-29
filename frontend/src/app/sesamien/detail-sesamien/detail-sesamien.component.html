@@ -1,0 +1,60 @@
+<div *ngIf="sesamien" class="row">
+  <div class="col s12 m8 offset-m2">
+    <h2 class="header center">{{ sesamien.name }}</h2>
+    <div class="card horizontal hoverable">
+      <div class="card-image">
+        <img [src]="sesamien.picture" />
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <table class="bordered striped">
+            <tbody>
+              <tr>
+                <td>Nom</td>
+                <td>
+                  <strong>{{ sesamien.name }}</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Points de vie</td>
+                <td>
+                  <strong>{{ sesamien.hp }}</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Dégâts</td>
+                <td>
+                  <strong>{{ sesamien.cp }}</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Mention</td>
+                <td>
+                  <span
+                    *ngFor="let mention of sesamien.mentions"
+                    class="{{ mention | sesamienMentionColor }}"
+                    >{{ mention }}</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Date de création</td>
+                <td>
+                  <em>{{ sesamien.created | date : "dd/MM/yyyy" }}</em>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-action">
+          <a (click)="goToSesamienList()">Retour</a>
+          <a (click)="goToEditSesamien(sesamien)">Editer</a>
+          <a (click)="deleteSesamien(sesamien)">Supprimer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h4 *ngIf="!sesamien" class="center">
+  <app-loader></app-loader>
+</h4>
