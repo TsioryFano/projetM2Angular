@@ -1,0 +1,93 @@
+<div class="container">
+  <h2>Ajouter un nouvel utilisateur</h2>
+  <form (ngSubmit)="onSubmit()">
+    <!-- Champs pour les informations de base de l'utilisateur -->
+    <div class="form-group">
+      <label for="firstName">Prénom</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="user.firstName"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Nom</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        [(ngModel)]="user.lastName"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Adresse électronique</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="user.password"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="username">Nom d'utilisateur</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="user.username"
+        required
+      />
+    </div>
+
+    <!-- Sélection du rôle -->
+    <div class="form-group">
+      <label for="role">Rôle</label>
+      <select id="role" name="role" [(ngModel)]="user.role" required>
+        <option *ngFor="let role of userRoles" [value]="role">
+          {{ role }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Sélection de la sériation (si c'est un professeur) -->
+    <div class="form-group" *ngIf="user.role === 'Professeur'">
+      <label for="seriation">Sériation</label>
+      <input
+        type="text"
+        id="seriation"
+        name="seriation"
+        [(ngModel)]="user.seriation"
+        required
+      />
+    </div>
+
+    <!-- Sélection des matières (si c'est un professeur) -->
+    <div class="form-group" *ngIf="user.role === 'Professeur'">
+      <label for="matieres"
+        >Matières enseignées (séparées par des virgules)</label
+      >
+      <input
+        type="text"
+        id="matieres"
+        name="matieres"
+        [(ngModel)]="user.matieresEnseignees"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Créer l'utilisateur</button>
+  </form>
+</div>

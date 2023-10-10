@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, delay, of, tap } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,8 @@ export class AuthService {
       tap((isLoggedIn: boolean) => this.isLoggedIn = isLoggedIn)
     );
   }
+
+  
 
   logout(){
     this.isLoggedIn = false;

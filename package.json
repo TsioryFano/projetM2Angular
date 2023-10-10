@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
     "oracledb": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/node": "^20.8.3",
+    "ts-node": "^10.9.1"
   }
 }

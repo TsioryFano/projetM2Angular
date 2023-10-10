@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <!-- Ajoutez ici une barre de recherche ou de filtre pour les utilisateurs si nécessaire -->
+    <div *ngFor="let user of userList" class="col m4 s6">
+      <div (click)="goToUserDetail(user)" class="card horizontal" appBorderCard>
+        <div class="card-image">
+          <!-- Vous pouvez ajouter une image d'utilisateur ici si vous en avez -->
+          <img [src]="'path_vers_image'" />
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>{{ user.firstName }} {{ user.lastName }}</p>
+            <p>{{ user.email }}</p>
+            <p>
+              <small>{{ user.role }}</small>
+            </p>
+            <!-- Si l'utilisateur est un professeur -->
+            <div *ngIf="user.role === 'Professeur'">
+              <p>{{ user.seriation }}</p>
+              <p>Matières enseignées:</p>
+              <ul>
+                <li *ngFor="let matiere of user.matieresEnseignees">
+                  {{ matiere }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<a
+  class="btn-floating btn-large waves-effect waves-light red z-depth-3"
+  style="position: fixed; bottom: 25px; right: 25px"
+  routerLink="/user/add"
+>
+  +
+</a>

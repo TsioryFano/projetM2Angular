@@ -9,13 +9,16 @@ import { SesamienModule } from './sesamien/sesamien.module';
 import { FormsModule } from '@angular/forms';
 import { InMemoryDataService } from './in-memory-data.service';
 import { LoginComponent } from './login/login.component';
+import { ConfigService } from './shared/config.service';
+import { UserAddComponent } from './user/user-add/user-add.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { LoginComponent } from './login/login.component';
     SesamienModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
